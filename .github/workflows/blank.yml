@@ -69,7 +69,7 @@ jobs:
         cdktf init --template=typescript \
           --project-name=learn-terraform-cdktf-applications \
           --project-description="Learn how to develop CDKTF applications" \
-          # --providers="kubernetes@~>2.14" \
+          --providers="Y" \
           --local
   
     - name: Installing Project dependencies
