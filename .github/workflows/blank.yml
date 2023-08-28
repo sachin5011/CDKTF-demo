@@ -48,21 +48,23 @@ jobs:
     
     - name: Creating CDKTF project
       run: |
+        pwd
         mkdir cdktf-demo
         cd cdktf-demo
+        # cdktf init --template=typescript --local
+        # ls
+
+
+    - name: Listing CDKTF Directory
+      run: |
         pwd
-
-
-    # - name: Listing CDKTF Directory
-    #   run: |
-    #     pwd
-    #     cd /home/runner/work/demo/demo/cdktf-demo
-    #     pwd
-    #     ls
+        cd /home/runner/work/CDKTF-demo/CDKTF-demo/cdktf-demo
+        pwd
+        ls
 
     - name: Creating CDKTF project
       run : |
-        cd /home/runner/work/demo/demo/cdktf-demo
+        cd /home/runner/work/CDKTF-demo/CDKTF-demo/cdktf-demo
 
         cdktf init --template=typescript \
           --project-name=learn-terraform-cdktf-applications \
