@@ -74,8 +74,8 @@ jobs:
   
     - name: Installing Project dependencies
       run : |
-            npm install --save-dev @types/node
             npm install @cdktf/provider-databricks
+            npm install --save-dev @types/node
             echo "Installed Successfully"
 
     - name: Ls node_modules
@@ -88,22 +88,14 @@ jobs:
           cd cdktf-demo
           ls
 
-    - name: Installing providers dependencies
-      run : |
-       npm install @cdktf/provider-aws
-       npm install @cdktf/provider-google
-       npm install @cdktf/provider-azurerm
-       npm install @cdktf/provider-docker
-       npm install @cdktf/provider-github
-       npm install @cdktf/provider-null
 
-       
     - name: Running vars.ts
       run: |
         tsc vars.ts
 
     - name: Adding Script to main.ts
       run: |
+        npm install @cdktf/provider-databricks
         tsc main.ts
 
         
