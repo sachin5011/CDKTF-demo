@@ -90,7 +90,7 @@ jobs:
 
     - name: Adding Script to main.ts
       run: |
-        tsv main.ts
+        tsc main.ts
         
     - name: CAT main.ts
       run: |
