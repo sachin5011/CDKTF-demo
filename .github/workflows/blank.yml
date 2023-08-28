@@ -1,3 +1,5 @@
+name: My_first_git_action
+
 on:
   push:
     branches: [ "main" ]
@@ -67,7 +69,7 @@ jobs:
         cdktf init --template=typescript \
           --project-name=learn-terraform-cdktf-applications \
           --project-description="Learn how to develop CDKTF applications" \
-          --providers="kubernetes@~>2.14" \
+          # --providers="kubernetes@~>2.14" \
           --local
   
     - name: Installing Project dependencies
@@ -85,8 +87,12 @@ jobs:
       run: |
           cd cdktf-demo
           ls
-          
+
     - name: Adding Script to main.ts
       run: |
         cd cdktf-demo
         cat main.ts
+        
+
+
+         
