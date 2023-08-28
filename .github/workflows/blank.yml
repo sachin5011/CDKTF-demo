@@ -54,12 +54,12 @@ jobs:
         ls
 
 
-    - name: Listing CDKTF Directory
-      run: |
-        pwd
-        cd /home/runner/work/demo/demo/cdktf-demo
-        pwd
-        ls
+    # - name: Listing CDKTF Directory
+    #   run: |
+    #     pwd
+    #     cd /home/runner/work/demo/demo/cdktf-demo
+    #     pwd
+    #     ls
 
     - name: Installing Project dependencies
       run : |
