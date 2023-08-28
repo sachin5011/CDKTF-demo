@@ -92,6 +92,7 @@ jobs:
       run: |
         cd cdktf-demo
         rm main.ts
+        touch main.ts
         cat << import { Construct } from "constructs";
         import { App, TerraformOutput, TerraformStack } from "cdktf";
         import { DatabricksProvider, DataDatabricksCurrentUser, Notebook, Job } from "@cdktf/provider-databricks";
@@ -143,3 +144,7 @@ jobs:
         const app = new App();
         new MyStack(app, "cdktf-demo");
         app.synth();>> main.ts
+        
+
+
+         
