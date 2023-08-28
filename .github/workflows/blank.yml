@@ -91,7 +91,6 @@ jobs:
     - name: Adding Script to main.ts
       run: |
         cd cdktf-demo
-        rm main.ts
         touch main.ts
         cat << import { Construct } from "constructs";
         import { App, TerraformOutput, TerraformStack } from "cdktf";
