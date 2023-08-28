@@ -88,13 +88,14 @@ jobs:
           cd cdktf-demo
           ls
 
+    - name: Running vars.ts
+      run: |
+        tsc vars.ts
+
     - name: Adding Script to main.ts
       run: |
         tsc main.ts
 
-    - name: Running vars.ts
-      run: |
-        tsc vars.ts
         
     - name: CAT main.ts
       run: |
