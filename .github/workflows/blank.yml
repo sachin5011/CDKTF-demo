@@ -1,5 +1,3 @@
-name: My_first_git_action
-
 on:
   push:
     branches: [ "main" ]
@@ -87,10 +85,8 @@ jobs:
       run: |
           cd cdktf-demo
           ls
-        
-# cdktf-demo
-      # node_modules
-      # package-lock.json
-      # package.json
-
-         
+          
+    - name: Adding Script to main.ts
+      run: |
+        cd cd cdktf-demo
+        cat main.ts
