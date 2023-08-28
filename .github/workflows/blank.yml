@@ -1,0 +1,95 @@
+name: My_first_git_action
+
+on:
+  push:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install node v18
+      uses: actions/setup-node@v1
+      with:
+        node-version: 18
+        
+    - name: Install Typescript
+      run: npm install -g typescript
+         
+        
+    - uses: actions/checkout@v1
+    - name: Install Terraform
+      uses: little-core-labs/install-terraform@v2.0.0
+      with:
+          version: 1.5.6
+
+    - name: Install CDKTF-CLI
+      run: npm install -g cdktf-cli
+          
+
+    - name: Checks node and Terraform version
+      run : |
+        echo "=== Terraform Version ==="
+        terraform -v
+        echo "=== Node Version ==="
+        node -v
+        echo "=== npm Version ==="
+        npm -v
+        echo "=== Typescript Version ==="
+        tsc -v
+        echo "=== CDKTF CLI Version ==="
+        cdktf --version
+    
+    - name: Creating CDKTF project
+      run: |
+        mkdir cdktf-demo
+        cd cdktf-demo
+        cdktf init --template=typescript --local
+        ls
+
+
+    - name: Listing CDKTF Directory
+      run: |
+        pwd
+        cd /home/runner/work/demo/demo/cdktf-demo
+        pwd
+        ls
+
+    - name: Installing Project dependencies
+      run : |
+        npm install --save-dev @types/node
+        npm install @cdktf/provider-databricks
+        echo "Installed Successfully"
+
+    - name: Creating CDKTF project
+      run : |
+        cdktf init --template=typescript \
+          --project-name=learn-terraform-cdktf-applications \
+          --project-description="Learn how to develop CDKTF applications" \
+          --providers="kubernetes@~>2.14" \
+          --local
+  
+          
+
+    - name: Ls node_modules
+      run: |
+        cd node_modules
+        ls
+
+    - name: Ls cdktf-demo
+      run: |
+          cd cdktf-demo
+          ls
+        
+# cdktf-demo
+      # node_modules
+      # package-lock.json
+      # package.json
+
+         
