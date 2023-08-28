@@ -65,11 +65,11 @@ jobs:
     - name: Creating CDKTF project
       run : |
         cd /home/runner/work/CDKTF-demo/CDKTF-demo/cdktf-demo
-        npm install @cdktf/provider-null
+
         cdktf init --template=typescript \
           --project-name=learn-terraform-cdktf-applications \
           --project-description="Learn how to develop CDKTF applications" \
-          # --providers="Y" \
+          --providers="kubernetes@~>2.14" \
           --local
   
     - name: Installing Project dependencies
