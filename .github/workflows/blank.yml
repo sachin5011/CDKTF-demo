@@ -54,28 +54,28 @@ jobs:
         ls
 
 
-    # - name: Listing CDKTF Directory
-    #   run: |
-    #     pwd
-    #     cd /home/runner/work/demo/demo/cdktf-demo
-    #     pwd
-    #     ls
-
-    - name: Installing Project dependencies
-      run : |
-        npm install --save-dev @types/node
-        npm install @cdktf/provider-databricks
-        echo "Installed Successfully"
+    - name: Listing CDKTF Directory
+      run: |
+        pwd
+        cd /home/runner/work/demo/demo/cdktf-demo
+        pwd
+        ls
 
     - name: Creating CDKTF project
       run : |
+        cd /home/runner/work/demo/demo/cdktf-demo
+
         cdktf init --template=typescript \
           --project-name=learn-terraform-cdktf-applications \
           --project-description="Learn how to develop CDKTF applications" \
           --providers="kubernetes@~>2.14" \
           --local
   
-          
+    - name: Installing Project dependencies
+      run : |
+            npm install --save-dev @types/node
+            npm install @cdktf/provider-databricks
+            echo "Installed Successfully"
 
     - name: Ls node_modules
       run: |
