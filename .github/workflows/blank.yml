@@ -88,5 +88,5 @@ jobs:
           
     - name: Adding Script to main.ts
       run: |
-        cd cd cdktf-demo
+        cd cdktf-demo
         cat main.ts
