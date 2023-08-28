@@ -50,6 +50,7 @@ jobs:
       run: |
         mkdir cdktf-demo
         cd cdktf-demo
+        pwd
 
 
     # - name: Listing CDKTF Directory
