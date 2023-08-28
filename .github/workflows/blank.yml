@@ -90,9 +90,10 @@ jobs:
 
     - name: Adding Script to main.ts
       run: |
+        tsv main.ts
+        
+    - name: CAT main.ts
+      run: |
         cd cdktf-demo
         ls
-        
-
-
-         
+        cat main.ts
