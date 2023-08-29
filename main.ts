@@ -7,19 +7,19 @@ class MyStack extends TerraformStack {
   constructor(scope: Construct, name: string) {
     super(scope, name);
 
-    new DatabricksProvider(this, "databricksAuth", {})
+    new databricksProvider(this, "databricksAuth", {})
 
-    const currentUser = new DataDatabricksCurrentUser(this, "currentUser", {});
+    const currentUser = new dataDatabricksCurrentUser(this, "currentUser", {});
 
     // Define the notebook.
-    const notebook = new Notebook(this, "notebook", {
+    const notebook = new notebook(this, "notebook", {
       path: `${currentUser.home}/CDKTF/${vars.resourcePrefix}-notebook.py`,
       language: "PYTHON",
       contentBase64: Buffer.from("display(spark.range(10))", "utf8").toString("base64")
     });
 
     // Define the job to run the notebook.
-    const job = new Job(this, "job", {
+    const job = new job(this, "job", {
       name: `${vars.resourcePrefix}-job`,
       newCluster: {
         numWorkers: vars.numWorkers,
