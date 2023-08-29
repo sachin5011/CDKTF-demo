@@ -1,25 +1,25 @@
 import { Construct } from "constructs";
 import { App, TerraformOutput, TerraformStack } from "cdktf";
-import { databricksProvider, dataDatabricksCurrentUser, notebook, job } from "@cdktf/provider-databricks";
+import { DatabricksProvider, DataDatabricksCurrentUser, Notebook, Job } from "@cdktf/provider-databricks";
 import * as vars from "./vars";
 
 class MyStack extends TerraformStack {
   constructor(scope: Construct, name: string) {
     super(scope, name);
 
-    new databricksProvider(this, "databricksAuth", {})
+    new DatabricksProvider(this, "databricksAuth", {})
 
-    const currentUser = new dataDatabricksCurrentUser(this, "currentUser", {});
+    const currentUser = new DataDatabricksCurrentUser(this, "currentUser", {});
 
     // Define the notebook.
-    const notebook = new notebook(this, "notebook", {
+    const notebook = new Notebook(this, "notebook", {
       path: `${currentUser.home}/CDKTF/${vars.resourcePrefix}-notebook.py`,
       language: "PYTHON",
       contentBase64: Buffer.from("display(spark.range(10))", "utf8").toString("base64")
     });
 
     // Define the job to run the notebook.
-    const job = new job(this, "job", {
+    const job = new Job(this, "job", {
       name: `${vars.resourcePrefix}-job`,
       newCluster: {
         numWorkers: vars.numWorkers,
