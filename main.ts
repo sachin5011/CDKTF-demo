@@ -1,6 +1,6 @@
 import { Construct } from "constructs";
 import { App, TerraformOutput, TerraformStack } from "cdktf";
-import { DatabricksProvider, DataDatabricksCurrentUser, Notebook, Job } from "@cdktf/provider-databricks";
+import { databricksProvider, dataDatabricksCurrentUser, notebook, job } from "@cdktf/provider-databricks";
 import * as vars from "./vars";
 
 class MyStack extends TerraformStack {
