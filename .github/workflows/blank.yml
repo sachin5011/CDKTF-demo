@@ -87,7 +87,6 @@ jobs:
       run: |
           cd cdktf-demo
           ls
-          cat tsconfig.json
 
 
     - name: Running vars.ts
@@ -98,7 +97,12 @@ jobs:
       run: |
         npm install @cdktf/provider-databricks
         tsc main.ts
-
+    
+    - name: Building cdktf project
+      run: |
+        cdktf synth
+        cdktf diff
+        cdktf deploy
         
     - name: CAT main.ts
       run: |
