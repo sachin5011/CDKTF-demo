@@ -105,9 +105,9 @@ jobs:
         cdktf diff
         cdktf deploy
         
-    - name: CAT main.ts
-      run: |
-        cd cdktf-demo
-        ls
-        cat main.ts
-        cat vars.ts
+    # - name: CAT main.ts
+    #   run: |
+    #     cd cdktf-demo
+    #     ls
+    #     cat main.ts
+    #     cat vars.ts
