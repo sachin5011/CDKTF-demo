@@ -1,4 +1,4 @@
-name: My_first_git_action
+name: CDKTF_DEMO
 
 on:
   push:
